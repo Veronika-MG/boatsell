@@ -8,7 +8,7 @@ from order.models import Order
 def send_order_email(order_item: Order):
     send_mail(
         'Заявка на покупку лодки',
-        f'{order_item.name} ({send_order_email}) хочет купить вашу лодку {order_item.boat.name}. Вот сообщение: {order_item.message}',
+        f'{order_item.name} ({order_item.email}) хочет купить вашу лодку "{order_item.boat.name}". Вот сообщение: {order_item.message}',
         settings.EMAIL_HOST_USER,
         [order_item.boat.owner.email]
     )
